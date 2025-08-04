@@ -1,4 +1,4 @@
-# 3D-CFD-Surrogate-Modeling-with-RegDGCNN
+# 3D CFD Surrogate Modeling with RegDGCNN
 
 This project implements a Regression Dynamic Graph-Based CNN Model (RegDGCNN) to predict the pressure distribution over 3D geometries using Point Cloud Data. Data combines the mesh details with the scalar pressure fields to train the RegDGCNN model. KNN is used to explore the design landscape to analyse the neighbours and form Dynamic Graph Edge features. Edge Convolutions is used to explore the neighbourhood and extract features for each layer. The RegDGCNN predicts pressure fields for each point cloud.  The model learns directly from CFD simulation data and enables rapid, simulation-free aerodynamic design space exploration.
 
@@ -22,10 +22,13 @@ This project implements a Regression Dynamic Graph-Based CNN Model (RegDGCNN) to
   - `mesh_xxx.ply` – 3D mesh geometry (point cloud)
   - `press_xxx.npy` – CFD-generated surface pressure scalar field
   - `train.txt`, `test.txt` – Comma-separated lists of sample IDs
+### File Descriptions
 
-### Preprocessing
-
-All data is converted into `.npz` format containing:
-- `points`: N × 3 array of 3D coordinates
-- `pressure`: N × 1 array of scalar pressure values
+- main.py - 	Entry point to start training. Loads data, initializes the model, optimizer, and runs training & evaluation loops.
+- DataPreprocessing.py - Converts the raw .ply 3D mesh geometry and .npy scalar pressure fields into .npz format for efficient loading. all .npz files stored Processed_Data folder
+- utils/dataset.py - Defines the class ShapeNetCFD - a PyTorch Dataset for loading and preprocessing point cloud and pressure data from .npz files
+- train_model.py - Contains functions for one epoch of training and evaluation.
+- models/RegDGCNN.py - Defines RegDGCNN class, a Dynamic Graph CNN for Regression handling 3D point cloud data
+- utils/knn.py - Designed to explore the K nearest Neighbours for edge exploration
+ 
 
