@@ -1,8 +1,6 @@
 # 3D-CFD-Surrogate-Modeling-with-RegDGCNN
 
 This project implements a Regression Dynamic Graph-Based CNN Model (RegDGCNN) to predict the pressure distribution over 3D geometries using Point Cloud Data. Data combines the mesh details with the scalar pressure fields to train the RegDGCNN model. KNN is used to explore the design landscape to analyse the neighbours and form Dynamic Graph Edge features. Edge Convolutions is used to explore the neighbourhood and extract features for each layer. The RegDGCNN predicts pressure fields for each point cloud.  The model learns directly from CFD simulation data and enables rapid, simulation-free aerodynamic design space exploration.
-https://zenodo.org/records/13993629ressure 
-
 
 ---
 
